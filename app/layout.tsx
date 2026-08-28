@@ -13,12 +13,12 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.URL || process.env.NEXT_PUBLIC_SITE_URL || "https://rudi-cella-wedding.netlify.app"),
   title: "The Wedding of Rudi & Cella",
   description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberikan doa restu.",
   openGraph: {
     title: "The Wedding of Rudi & Cella",
     description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberikan doa restu.",
-    images: ["/kartun-pengantin.jpg"],
     type: "website",
   },
 };
