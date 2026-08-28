@@ -197,7 +197,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
     setIsOpening(true);
     setTimeout(() => {
       onOpen();
-    }, 2500); // Trigger page transition after envelope animation
+    }, 800); // Trigger page transition smoothly
   };
 
   return (
@@ -302,114 +302,38 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.2 }}
-              className="bg-white/5 backdrop-blur-md border border-gold/30 px-10 py-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+              className="bg-white/5 backdrop-blur-md border border-gold/30 px-10 py-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] mb-12"
             >
               <p className="text-xs sm:text-sm text-stone-300 mb-2 tracking-widest uppercase">Kepada Yth. Bapak/Ibu/Saudara/i,</p>
               <h2 className="text-2xl sm:text-3xl font-serif text-gold drop-shadow-md">{to || "Tamu Undangan"}</h2>
             </motion.div>
+
+            {/* OPEN BUTTON */}
+            <motion.button
+              onClick={handleOpen}
+              animate={{
+                y: [0, -8, 0],
+                boxShadow: [
+                  "0px 0px 0px rgba(212, 175, 55, 0)",
+                  "0px 0px 25px rgba(212, 175, 55, 0.4)",
+                  "0px 0px 0px rgba(212, 175, 55, 0)"
+                ]
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="group relative inline-flex items-center justify-center px-10 py-4 font-bold tracking-widest text-[#2C1E16] transition-all duration-300 ease-in-out bg-gradient-to-r from-gold via-[#FFF2B2] to-gold bg-[length:200%_auto] hover:bg-right rounded-full shadow-[0_0_20px_rgba(212,175,55,0.6)] overflow-hidden animate-pulse mt-4"
+            >
+              <span className="relative z-10 text-sm uppercase">Buka Undangan</span>
+              <motion.div
+                className="absolute inset-0 bg-gold/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"
+              />
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* ENVELOPE CONTAINER */}
-      <motion.div
-        animate={isOpening ? { scale: 1.1, opacity: 0, y: 100 } : { scale: 1, opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 1, ease: "easeInOut" }}
-        style={{ willChange: "transform, opacity" }}
-        className="relative w-full max-w-[320px] sm:max-w-md aspect-[4/3] sm:aspect-[3/2] flex items-end justify-center mb-12 z-20"
-      >
-        {/* ENVELOPE BACK (Inside) */}
-        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-b from-[#8C7A6B] to-[#5C4A3D] rounded-lg shadow-inner border border-gold/20 overflow-hidden">
-          <div className="absolute inset-0 shadow-[inset_0_20px_30px_rgba(0,0,0,0.5)]"></div>
-        </div>
-
-        {/* THE LETTER (Glass Panel) */}
-        <motion.div
-          animate={isOpening ? { y: -220, scale: 1.05 } : { y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          style={{ willChange: "transform" }}
-          className="absolute z-10 w-[92%] h-[92%] bottom-[4%] flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-[#38271d] to-[#251911] rounded-md border border-gold/30 shadow-[0_5px_20px_rgba(0,0,0,0.6)] overflow-hidden"
-        >
-          <div className="absolute inset-0 border-[4px] border-double border-gold/20 m-2 rounded pointer-events-none"></div>
-
-          <div className="w-16 h-16 mb-2 rounded-full border border-gold flex items-center justify-center mt-2 bg-gradient-to-br from-gold/10 to-transparent">
-            <span className="font-serif text-2xl text-gold">R&S</span>
-          </div>
-
-          <div className="flex-1 flex flex-col items-center justify-center z-20">
-            <p className="text-[10px] tracking-[0.2em] uppercase mb-1 text-stone-300">You Are Invited</p>
-            <h1 className="font-serif text-2xl mb-2 text-gold drop-shadow-sm">Rudi & Cella</h1>
-            <p className="text-xs text-stone-400">17 . 10 . 2026</p>
-          </div>
-        </motion.div>
-
-        {/* ENVELOPE FRONT FLAPS */}
-        <div className="absolute z-20 inset-x-0 bottom-0 h-full pointer-events-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]">
-          {/* Left Wing */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#E6D5B8] to-[#C8B490] border-r border-t border-white/50" style={{ clipPath: 'polygon(0 0, 50% 50%, 0 100%)' }}></div>
-          {/* Right Wing */}
-          <div className="absolute inset-0 bg-gradient-to-bl from-[#E6D5B8] to-[#C8B490] border-l border-t border-white/50" style={{ clipPath: 'polygon(100% 0, 50% 50%, 100% 100%)' }}></div>
-          {/* Bottom Wing */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#D4C3A3] via-[#E8D9C0] to-[#F5EBE1] border-t border-white/60 shadow-2xl" style={{ clipPath: 'polygon(0 100%, 50% 50%, 100% 100%)' }}></div>
-        </div>
-
-        {/* ENVELOPE TOP FLAP */}
-        <motion.div
-          animate={isOpening ? { rotateX: 180, zIndex: 0 } : { rotateX: 0, zIndex: 30 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          style={{ transformOrigin: "top", willChange: "transform" }}
-          className="absolute inset-x-0 top-0 h-[55%] drop-shadow-[0_10px_15px_rgba(0,0,0,0.7)] flex justify-center"
-        >
-          {/* Triangle flap */}
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#F5EBE1] via-[#E6D5B8] to-[#D4C3A3] border-b border-white/50 pointer-events-none" style={{ clipPath: 'polygon(0 0, 100% 0, 50% 100%)' }}></div>
-
-          {/* Wax Seal - Clickable */}
-          <motion.button
-            onClick={!isOpening ? handleOpen : undefined}
-            animate={isOpening ? { opacity: 0, scale: 0 } : { opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            className={`absolute bottom-0 translate-y-1/2 w-14 h-14 bg-gradient-to-br from-red-800 to-red-950 rounded-full flex items-center justify-center border-[2px] border-red-900 shadow-[inset_0_2px_4px_rgba(255,255,255,0.2),_0_5px_15px_rgba(0,0,0,0.6)] ${!isOpening ? 'cursor-pointer hover:scale-110' : ''} transition-transform z-40`}
-          >
-            <div className="w-10 h-10 rounded-full border border-red-900 shadow-[inset_0_1px_3px_rgba(0,0,0,0.7)] flex items-center justify-center">
-              <span className="text-gold font-serif text-sm drop-shadow-md">R&S</span>
-            </div>
-          </motion.button>
-        </motion.div>
-
-        {/* OPEN BUTTON OUTSIDE THE ENVELOPE (Animated & Luxurious) */}
-        <AnimatePresence>
-          {!isOpening && (
-            <motion.div
-              exit={{ opacity: 0, y: 20 }}
-              className="absolute -bottom-20 z-40"
-            >
-              <motion.button
-                onClick={handleOpen}
-                animate={{
-                  y: [0, -8, 0],
-                  boxShadow: [
-                    "0px 0px 0px rgba(212, 175, 55, 0)",
-                    "0px 0px 25px rgba(212, 175, 55, 0.4)",
-                    "0px 0px 0px rgba(212, 175, 55, 0)"
-                  ]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="group relative inline-flex items-center justify-center px-10 py-4 font-bold tracking-widest text-[#2C1E16] transition-all duration-300 ease-in-out bg-gradient-to-r from-gold via-[#FFF2B2] to-gold bg-[length:200%_auto] hover:bg-right rounded-full shadow-[0_0_20px_rgba(212,175,55,0.6)] overflow-hidden animate-pulse"
-              >
-                <span className="relative z-10 text-sm uppercase">Buka Undangan</span>
-                <motion.div
-                  className="absolute inset-0 bg-gold/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"
-                />
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-      </motion.div>
     </motion.div>
   );
 }
