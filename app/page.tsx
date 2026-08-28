@@ -183,7 +183,7 @@ function CopyButton({ text, label = "Salin No. Rekening" }: { text: string, labe
   };
 
   return (
-    <button onClick={handleCopy} className="mt-4 text-xs flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-full text-stone-300 mx-auto">
+    <button suppressHydrationWarning onClick={handleCopy} className="mt-4 text-xs flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-full text-stone-300 mx-auto">
       {copied ? <><Check size={14} className="text-green-400" /> Tersalin</> : <><Copy size={14} /> {label}</>}
     </button>
   );
@@ -236,13 +236,9 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
               transition={{ duration: 2, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
               className="absolute w-[200px] sm:w-[280px] aspect-[2/3] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] origin-bottom"
             >
-              <motion.div
-                animate={{ y: [0, -10, 0], rotate: [-12, -10, -12] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.3 }}
-                className="w-full h-full"
-              >
+              <div className="w-full h-full">
                 <Gunungan className="w-full h-full" />
-              </motion.div>
+              </div>
             </motion.div>
             
             <motion.div
@@ -252,13 +248,9 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
               transition={{ duration: 2, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
               className="absolute w-[200px] sm:w-[280px] aspect-[2/3] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] origin-bottom"
             >
-              <motion.div
-                animate={{ y: [0, -10, 0], rotate: [12, 10, 12] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.3 }}
-                className="w-full h-full"
-              >
+              <div className="w-full h-full">
                 <Gunungan className="w-full h-full" reverse={true} />
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         )}
@@ -310,21 +302,9 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
 
             {/* OPEN BUTTON */}
             <motion.button
+              suppressHydrationWarning
               onClick={handleOpen}
-              animate={{
-                y: [0, -8, 0],
-                boxShadow: [
-                  "0px 0px 0px rgba(212, 175, 55, 0)",
-                  "0px 0px 25px rgba(212, 175, 55, 0.4)",
-                  "0px 0px 0px rgba(212, 175, 55, 0)"
-                ]
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="group relative inline-flex items-center justify-center px-10 py-4 font-bold tracking-widest text-[#2C1E16] transition-all duration-300 ease-in-out bg-gradient-to-r from-gold via-[#FFF2B2] to-gold bg-[length:200%_auto] hover:bg-right rounded-full shadow-[0_0_20px_rgba(212,175,55,0.6)] overflow-hidden animate-pulse mt-4"
+              className="group relative inline-flex items-center justify-center px-10 py-4 font-bold tracking-widest text-[#2C1E16] transition-all duration-300 ease-in-out bg-gradient-to-r from-gold via-[#FFF2B2] to-gold bg-[length:200%_auto] hover:bg-right rounded-full shadow-[0_0_20px_rgba(212,175,55,0.6)] overflow-hidden mt-4"
             >
               <span className="relative z-10 text-sm uppercase">Buka Undangan</span>
               <motion.div
