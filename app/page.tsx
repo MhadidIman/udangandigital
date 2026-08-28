@@ -1008,10 +1008,6 @@ function BottomNavBar() {
 export default function WeddingInvitation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  
-  // Parallax Setup
-  const { scrollY } = useScroll();
-  const yBg = useTransform(scrollY, [0, 3000], [0, 150]);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -1023,8 +1019,8 @@ export default function WeddingInvitation() {
 
       {/* GLOBAL BACKGROUND */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Gebyok Background with Parallax */}
-        <motion.div style={{ y: yBg }} className="absolute -inset-20 bg-[url('/gebyok-bg.jpg')] bg-cover bg-center opacity-40"></motion.div>
+        {/* Gebyok Background (Static) */}
+        <div className="absolute inset-0 bg-[url('/gebyok-bg.jpg')] bg-cover bg-center opacity-30"></div>
         {/* Gradient to darken top and bottom slightly */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a120d]/80 via-[#1a120d]/40 to-[#1a120d]/90"></div>
         
