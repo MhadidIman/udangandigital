@@ -50,3 +50,11 @@ html, body {
     background-position: 0% center;
   }
 }
+
+/* Hide Netlify Toolbar / Badge */
+netlify-toolbar,
+#netlify-toolbar,
+#netlify-drawer,
+#netlify-badge {
+  display: none !important;
+}
