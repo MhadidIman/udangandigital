@@ -209,7 +209,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
       {/* Cover Particles */}
       {!isOpening && <FloatingParticles />}
       {/* WAYANG BACKGROUND (Shadow Effect) */}
-      <div className="absolute inset-0 bg-[url('/wayang-bg..jpg')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('/wayang-bg..jpg')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"></div>
 
       {/* DARK OVERLAY GRADIENT */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#1a120d] via-transparent to-[#1a120d] pointer-events-none"></div>
@@ -222,7 +222,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
         animate={isOpening ? { opacity: 0, scale: 1.2 } : { opacity: 0.65, scale: 1.15 }}
         transition={{ duration: 1.5 }}
         className="absolute inset-0 z-10 pointer-events-none bg-[url('/cover-frame.png')] bg-contain bg-center bg-no-repeat mix-blend-screen"
-        style={{ filter: "invert(1) brightness(1.5)" }}
+        style={{ filter: "invert(1) brightness(1.5)", willChange: "transform, opacity" }}
       ></motion.div>
 
       {/* ANIMATED GUNUNGAN (WAYANG) BEHIND ENVELOPE */}
@@ -315,11 +315,9 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
       <motion.div
         animate={isOpening ? { scale: 1.1, opacity: 0, y: 100 } : { scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1, ease: "easeInOut" }}
+        style={{ willChange: "transform, opacity" }}
         className="relative w-full max-w-[320px] sm:max-w-md aspect-[4/3] sm:aspect-[3/2] flex items-end justify-center mb-12 z-20"
       >
-        {/* PAPER TEXTURE OVERLAY */}
-        <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.25] mix-blend-overlay rounded-lg overflow-hidden" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
-
         {/* ENVELOPE BACK (Inside) */}
         <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-b from-[#8C7A6B] to-[#5C4A3D] rounded-lg shadow-inner border border-gold/20 overflow-hidden">
           <div className="absolute inset-0 shadow-[inset_0_20px_30px_rgba(0,0,0,0.5)]"></div>
@@ -329,6 +327,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
         <motion.div
           animate={isOpening ? { y: -220, scale: 1.05 } : { y: 0, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.76, 0, 0.24, 1] }}
+          style={{ willChange: "transform" }}
           className="absolute z-10 w-[92%] h-[92%] bottom-[4%] flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-[#38271d] to-[#251911] rounded-md border border-gold/30 shadow-[0_5px_20px_rgba(0,0,0,0.6)] overflow-hidden"
         >
           <div className="absolute inset-0 border-[4px] border-double border-gold/20 m-2 rounded pointer-events-none"></div>
@@ -358,7 +357,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
         <motion.div
           animate={isOpening ? { rotateX: 180, zIndex: 0 } : { rotateX: 0, zIndex: 30 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          style={{ transformOrigin: "top" }}
+          style={{ transformOrigin: "top", willChange: "transform" }}
           className="absolute inset-x-0 top-0 h-[55%] drop-shadow-[0_10px_15px_rgba(0,0,0,0.7)] flex justify-center"
         >
           {/* Triangle flap */}
