@@ -172,66 +172,6 @@ function AudioPlayer({ isPlaying, setIsPlaying }: { isPlaying: boolean, setIsPla
   );
 }
 
-function AutoScrollButton() {
-  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
-  const scrollInterval = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoScroll = () => {
-    setIsAutoScrolling(true);
-
-    if (scrollInterval.current) clearInterval(scrollInterval.current);
-
-    scrollInterval.current = setInterval(() => {
-      // Scroll down by 1 pixel
-      window.scrollBy(0, 1);
-
-      // Check if we hit the bottom of the document safely
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-
-      if (scrollY + windowHeight >= docHeight - 10) {
-        stopAutoScroll();
-      }
-    }, 20); // 20ms = ~50 frames per second, very smooth
-  };
-
-  const stopAutoScroll = () => {
-    setIsAutoScrolling(false);
-    if (scrollInterval.current) {
-      clearInterval(scrollInterval.current);
-      scrollInterval.current = null;
-    }
-  };
-
-  // Stop auto-scroll if user manually scrolls with mouse wheel or touch
-  useEffect(() => {
-    const handleUserInteraction = () => {
-      if (isAutoScrolling) stopAutoScroll();
-    };
-
-    window.addEventListener('wheel', handleUserInteraction);
-    window.addEventListener('touchstart', handleUserInteraction);
-
-    return () => {
-      window.removeEventListener('wheel', handleUserInteraction);
-      window.removeEventListener('touchstart', handleUserInteraction);
-      if (scrollInterval.current) clearInterval(scrollInterval.current);
-    };
-  }, [isAutoScrolling]);
-
-  return (
-    <div className="fixed bottom-6 left-6 z-50">
-      <button
-        onClick={isAutoScrolling ? stopAutoScroll : startAutoScroll}
-        className="relative w-12 h-12 rounded-full bg-gold/90 text-[#1a120d] flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-transform hover:scale-110"
-        title="Auto Scroll"
-      >
-        {isAutoScrolling ? <MousePointerClick size={22} className="animate-bounce" /> : <ArrowDownToLine size={22} />}
-      </button>
-    </div>
-  );
-}
 
 function CopyButton({ text, label = "Salin No. Rekening" }: { text: string, label?: string }) {
   const [copied, setCopied] = useState(false);
@@ -1184,7 +1124,6 @@ export default function WeddingInvitation() {
         {isOpen && (
           <>
             <AudioPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
-            <AutoScrollButton />
             <BottomNavBar />
           </>
         )}

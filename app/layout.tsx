@@ -13,10 +13,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "The Wedding of Rudi & Sella",
+  title: "The Wedding of Rudi & Cella",
   description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberikan doa restu.",
   openGraph: {
-    title: "The Wedding of Rudi & Sella",
+    title: "The Wedding of Rudi & Cella",
     description: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberikan doa restu.",
     images: ["/kartun-pengantin.jpg"],
     type: "website",
