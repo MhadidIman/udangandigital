@@ -12,53 +12,7 @@ import { supabase } from "../lib/supabase";
 // -- JAVANESE ORNAMENTS --
 
 const FloatingParticles = () => {
-  const [particles, setParticles] = useState<any[]>([]);
-
-  useEffect(() => {
-    const generated = [...Array(40)].map(() => ({
-      width: Math.random() * 4 + 1 + "px",
-      height: Math.random() * 4 + 1 + "px",
-      left: Math.random() * 100 + "%",
-      top: Math.random() * 100 + "%",
-      yDest: -100 - Math.random() * 100,
-      xDest: (Math.random() - 0.5) * 50,
-      scaleDest: Math.random() * 1.5 + 1,
-      duration: 4 + Math.random() * 8,
-      delay: Math.random() * 5,
-    }));
-    setParticles(generated);
-  }, []);
-
-  if (particles.length === 0) return null;
-
-  return (
-    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      {particles.map((p, i) => (
-        <motion.div
-          key={i}
-          className="absolute bg-gold rounded-full opacity-60"
-          style={{
-            width: p.width,
-            height: p.height,
-            left: p.left,
-            top: p.top,
-          }}
-          animate={{
-            y: [0, p.yDest],
-            x: [0, p.xDest],
-            opacity: [0, 0.8, 0],
-            scale: [1, p.scaleDest, 1],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            ease: "linear",
-            delay: p.delay,
-          }}
-        />
-      ))}
-    </div>
-  );
+  return null;
 };
 
 const BatikBackground = () => (
