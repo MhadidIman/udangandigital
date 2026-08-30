@@ -993,29 +993,27 @@ export default function WeddingInvitation() {
         <DigitalGift />
         <RSVPWishes />
 
-        <footer className="py-12 text-center border-t border-white/10 relative z-10 flex flex-col items-center justify-center">
-          <p className="text-stone-500 text-sm mb-8">Made with <Heart className="inline text-gold w-4 h-4 mx-1" /> for Rudi & Cella</p>
+        <footer className="py-12 pb-32 text-center relative z-10 flex flex-col items-center justify-center">
+          <p className="text-stone-300 text-sm mb-4">
+            Made with by <span className="text-gold font-medium">Hadid</span>
+          </p>
           
-          <div className="bg-white/5 backdrop-blur-md border border-gold/20 p-6 rounded-2xl w-full max-w-sm flex flex-col items-center gap-3 mb-8 shadow-lg hover:border-gold/40 transition-colors">
-             <p className="text-stone-400 text-[10px] uppercase tracking-[0.2em]">Undangan Digital Oleh</p>
-             <h4 className="font-serif text-2xl text-gold drop-shadow-sm">Hadid</h4>
-             
-             <div className="flex justify-center gap-6 mt-2">
-                <a href="https://wa.me/6287798645424" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-stone-300 hover:text-gold transition-colors text-xs font-medium">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                  </svg>
-                  WhatsApp
-                </a>
-                <a href="https://www.instagram.com/mhmdhdid___?igsi=MWZwNGZtNzUwdHhpbw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-stone-300 hover:text-gold transition-colors text-xs font-medium">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                  Instagram
-                </a>
-             </div>
+          <div className="flex justify-center gap-3">
+            <a href="https://wa.me/6287798645424" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366] text-white hover:bg-[#25D366]/10 transition-colors text-[13px] tracking-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              087798645424
+            </a>
+            
+            <a href="https://www.instagram.com/mhmdhdid___?igsi=MWZwNGZtNzUwdHhpbw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#E1306C] text-white hover:bg-[#E1306C]/10 transition-colors text-[13px] tracking-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+              @mhmdhdid___
+            </a>
           </div>
         </footer>
       </div>
