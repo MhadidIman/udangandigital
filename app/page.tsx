@@ -329,12 +329,15 @@ function Countdown() {
 
   return (
     <div className="flex justify-center gap-3 sm:gap-6 mt-8 text-stone-200">
-      {Object.entries(timeLeft).map(([unit, value]) => (
-        <div key={unit} className="flex flex-col items-center bg-white/5 backdrop-blur-md border border-gold/20 rounded-2xl w-16 h-16 sm:w-24 sm:h-24 justify-center shadow-lg">
-          <span className="font-serif text-2xl sm:text-4xl text-gold mb-1">{value.toString().padStart(2, '0')}</span>
-          <span className="text-[9px] sm:text-xs uppercase tracking-widest text-stone-400">{unit}</span>
-        </div>
-      ))}
+      {Object.entries(timeLeft).map(([unit, value]) => {
+        const labels: Record<string, string> = { days: "Hari", hours: "Jam", minutes: "Menit", seconds: "Detik" };
+        return (
+          <div key={unit} className="flex flex-col items-center bg-white/5 backdrop-blur-md border border-gold/20 rounded-2xl w-16 h-16 sm:w-24 sm:h-24 justify-center shadow-lg">
+            <span className="font-serif text-2xl sm:text-4xl text-gold mb-1">{value.toString().padStart(2, '0')}</span>
+            <span className="text-[9px] sm:text-xs uppercase tracking-widest text-stone-400">{labels[unit] || unit}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -529,8 +532,8 @@ function EventDetails() {
             <div className="space-y-4 mb-8">
               <div className="flex flex-col items-center">
                 <CalendarDays className="text-gold mb-2" size={24} />
-                <p className="font-semibold text-lg text-stone-200">Saturday, 17 October 2026</p>
-                <p className="text-stone-400">08:00 AM - 10:00 AM</p>
+                <p className="font-semibold text-lg text-stone-200">Sabtu, 17 Oktober 2026</p>
+                <p className="text-stone-400">08.00 WIB - Selesai</p>
               </div>
 
               <div className="flex flex-col items-center pt-4">
