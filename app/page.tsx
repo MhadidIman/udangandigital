@@ -99,7 +99,7 @@ function AudioPlayer({ isPlaying, setIsPlaying }: { isPlaying: boolean, setIsPla
   }, [isPlaying, setIsPlaying]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-28 md:bottom-6 right-4 md:right-6 z-[60]">
       <audio 
         ref={audioRef} 
         src="/MUARA - Adera.mp3" 
@@ -876,6 +876,20 @@ function RSVPWishes() {
         </motion.div>
 
       </div>
+
+      {/* Closing Sentence */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        className="mt-24 text-center max-w-2xl mx-auto px-4"
+      >
+        <p className="font-serif italic text-xl md:text-2xl text-gold mb-6 leading-relaxed">
+          "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai."
+        </p>
+        <p className="text-stone-300 text-sm tracking-widest uppercase mb-2">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <p className="text-gold font-serif text-3xl mt-6">Rudi & Cella</p>
+      </motion.div>
     </section>
   );
 }
