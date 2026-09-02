@@ -48,7 +48,7 @@ const AnimatedButterfly = ({ delay = 0, initialX = 0, initialY = 0, reverse = fa
   <motion.div
     className="absolute pointer-events-none z-30"
     initial={{ x: initialX, y: initialY, scale: 0 }}
-    animate={{ 
+    animate={{
       x: [initialX, initialX + (reverse ? -40 : 40), initialX - (reverse ? -20 : 20), initialX + (reverse ? -10 : 10), initialX],
       y: [initialY, initialY - 60, initialY - 100, initialY - 30, initialY],
       scale: [0, 1, 1, 1, 0],
@@ -56,16 +56,16 @@ const AnimatedButterfly = ({ delay = 0, initialX = 0, initialY = 0, reverse = fa
     }}
     transition={{ duration: 12, repeat: Infinity, ease: "linear", delay }}
   >
-    <motion.svg 
+    <motion.svg
       width="30" height="30" viewBox="0 0 24 24" fill="none"
       animate={{ scaleX: [1, 0.2, 1] }}
       transition={{ duration: 0.15, repeat: Infinity, ease: "easeInOut" }}
       className={reverse ? 'scale-x-[-1]' : ''}
     >
-      <path d="M12 12C12 12 14 6 18 6C22 6 22 10 18 14C14 18 12 12 12 12Z" fill="#D4AF37" opacity="0.8"/>
-      <path d="M12 12C12 12 10 6 6 6C2 6 2 10 6 14C10 18 12 12 12 12Z" fill="#D4AF37" opacity="0.8"/>
-      <path d="M12 12C12 12 14 18 16 18C18 18 18 16 16 14C14 12 12 12 12 12Z" fill="#D4AF37" opacity="0.6"/>
-      <path d="M12 12C12 12 10 18 8 18C6 18 6 16 8 14C10 12 12 12 12 12Z" fill="#D4AF37" opacity="0.6"/>
+      <path d="M12 12C12 12 14 6 18 6C22 6 22 10 18 14C14 18 12 12 12 12Z" fill="#D4AF37" opacity="0.8" />
+      <path d="M12 12C12 12 10 6 6 6C2 6 2 10 6 14C10 18 12 12 12 12Z" fill="#D4AF37" opacity="0.8" />
+      <path d="M12 12C12 12 14 18 16 18C18 18 18 16 16 14C14 12 12 12 12 12Z" fill="#D4AF37" opacity="0.6" />
+      <path d="M12 12C12 12 10 18 8 18C6 18 6 16 8 14C10 12 12 12 12 12Z" fill="#D4AF37" opacity="0.6" />
     </motion.svg>
   </motion.div>
 );
@@ -100,10 +100,10 @@ function AudioPlayer({ isPlaying, setIsPlaying }: { isPlaying: boolean, setIsPla
 
   return (
     <div className="fixed bottom-28 md:bottom-6 right-4 md:right-6 z-[60]">
-      <audio 
-        ref={audioRef} 
-        src="/MUARA - Adera.mp3" 
-        loop 
+      <audio
+        ref={audioRef}
+        src="/MUARA - Adera.mp3"
+        loop
         onEnded={() => {
           if (audioRef.current) {
             audioRef.current.currentTime = 0;
@@ -194,7 +194,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
                 <Gunungan className="w-full h-full" />
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 0, y: 150, rotate: 0, scale: 0.8 }}
               animate={{ opacity: 0.5, x: "65%", y: 0, rotate: 12, scale: 1 }}
@@ -218,15 +218,15 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center text-center mb-8 z-40"
           >
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
               className="text-xs sm:text-sm tracking-[0.3em] uppercase mb-2 text-gold font-medium"
             >
-              The Wedding Of
+              The Wedding Reception Of
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -244,7 +244,7 @@ function Cover({ onOpen, to }: { onOpen: () => void; to: string | null }) {
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.2 }}
@@ -356,7 +356,7 @@ function Hero() {
         transition={{ duration: 1 }}
         className="relative z-10 w-full max-w-3xl"
       >
-        <p className="tracking-[0.4em] text-sm uppercase mb-6 text-gold/80">We Are Getting Married</p>
+        <p className="tracking-[0.4em] text-sm uppercase mb-6 text-gold/80">Wedding Reception</p>
         <div className="relative inline-block">
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-stone-100 mb-4 shimmer-text">
             Rudi
@@ -430,7 +430,7 @@ function Profiles() {
         <p className="text-stone-300 text-sm md:text-base leading-loose max-w-2xl mx-auto">
           Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
           <br /><br />
-          Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara pernikahan putra-putri kami:
+          Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara resepsi pernikahan putra-putri kami:
         </p>
       </motion.div>
 
@@ -492,7 +492,7 @@ function Profiles() {
             <h4 className="font-serif text-sm tracking-[0.2em] text-stone-200 uppercase mb-8">Naycella Dwi Olivia Amanda</h4>
 
             <p className="text-xs text-stone-400 mb-1 tracking-widest uppercase">Putri dari</p>
-            <p className="text-stone-300 font-medium mb-2">Bapak Rozikin & Ibu Sriyati</p>
+            <p className="text-stone-300 font-medium mb-2">Bapak Rosydin & Ibu Sriyati</p>
           </div>
         </motion.div>
 
@@ -518,7 +518,6 @@ function EventDetails() {
         </motion.h2>
 
         <div className="flex justify-center w-full">
-          {/* Akad Card */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -526,7 +525,7 @@ function EventDetails() {
             transition={{ duration: 0.8 }}
             className="w-full max-w-md bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] p-8 flex flex-col items-center text-center hover:scale-[1.02] hover:border-gold/50 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-500 cursor-default"
           >
-            <h3 className="font-serif text-3xl mb-2 text-white">Akad Nikah</h3>
+            <h3 className="font-serif text-3xl mb-2 text-white">Resepsi Pernikahan</h3>
             <div className="w-12 h-[1px] bg-gold mb-6"></div>
 
             <div className="space-y-4 mb-8">
@@ -604,7 +603,7 @@ function LoveStory() {
 
         <div className="relative max-w-3xl mx-auto">
           {/* Vertical Line */}
-          <motion.div 
+          <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             viewport={{ once: false, amount: 0.1 }}
@@ -612,7 +611,7 @@ function LoveStory() {
             style={{ originY: 0 }}
             className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-gold/50 -translate-x-1/2"
           ></motion.div>
-          
+
           <div className="space-y-12">
             {timeline.map((item, idx) => (
               <motion.div
@@ -625,7 +624,7 @@ function LoveStory() {
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-gold -translate-x-1/2 mt-5 md:mt-0 shadow-[0_0_10px_rgba(212,175,55,0.8)] z-10"></div>
-                
+
                 {/* Content Card */}
                 <div className="w-full md:w-1/2 ml-10 md:ml-0 md:px-12">
                   <div className={`bg-white/5 backdrop-blur-sm border border-gold/20 p-6 rounded-2xl text-left ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'} shadow-lg group hover:border-gold/50 transition-colors duration-300`}>
@@ -689,11 +688,11 @@ function DigitalGift() {
             className="w-full max-w-md bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] p-8 text-center flex flex-col justify-center items-center"
           >
             <div className="bg-white w-[140px] h-[48px] rounded-xl mb-4 relative overflow-hidden flex justify-center items-center shadow-sm">
-              <Image 
-                src="/logo_mandiri.png" 
-                alt="Bank Mandiri" 
+              <Image
+                src="/logo_mandiri.png"
+                alt="Bank Mandiri"
                 fill
-                className="object-cover object-left p-2" 
+                className="object-cover object-left p-2"
               />
             </div>
             <p className="font-semibold text-lg text-stone-200 tracking-widest mt-2">1590 0106 7359 7</p>
@@ -741,7 +740,7 @@ function DigitalGift() {
 
 // 8. RSVP & Wishes
 function RSVPWishes() {
-  const [wishes, setWishes] = useState<{name: string, text: string}[]>([]);
+  const [wishes, setWishes] = useState<{ name: string, text: string }[]>([]);
   const [formData, setFormData] = useState({ name: "", attendance: "yes", message: "" });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -752,9 +751,9 @@ function RSVPWishes() {
           .from('guestbook')
           .select('name, message, created_at')
           .order('created_at', { ascending: false });
-          
+
         if (error) throw error;
-        
+
         if (data && data.length > 0) {
           setWishes(data.map((d: any) => ({ name: d.name, text: d.message })));
         } else {
@@ -771,18 +770,18 @@ function RSVPWishes() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
-    
+
     setIsLoading(true);
-    
+
     try {
       const { error } = await supabase
         .from('guestbook')
         .insert([
           { name: formData.name, attendance: formData.attendance, message: formData.message }
         ]);
-        
+
       if (error) throw error;
-      
+
       setWishes([{ name: formData.name, text: formData.message }, ...wishes]);
       setFormData({ name: "", attendance: "yes", message: "" });
     } catch (err) {
@@ -974,7 +973,7 @@ export default function WeddingInvitation() {
         <div className="absolute inset-0 bg-[url('/gebyok-bg.jpg')] bg-cover bg-center opacity-30"></div>
         {/* Gradient to darken top and bottom slightly */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a120d]/80 via-[#1a120d]/40 to-[#1a120d]/90"></div>
-        
+
         {/* Global Floating Particles when opened */}
         {isOpen && <FloatingParticles />}
       </div>
@@ -1014,7 +1013,7 @@ export default function WeddingInvitation() {
           <p className="text-stone-300 text-sm mb-4">
             Made with by <span className="text-gold font-medium">Hadid</span>
           </p>
-          
+
           <div className="flex justify-center gap-3">
             <a href="https://wa.me/6287798645424" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366] text-white hover:bg-[#25D366]/10 transition-colors text-[13px] tracking-wide">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -1022,7 +1021,7 @@ export default function WeddingInvitation() {
               </svg>
               087798645424
             </a>
-            
+
             <a href="https://www.instagram.com/mhmdhdid___?igsi=MWZwNGZtNzUwdHhpbw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#E1306C] text-white hover:bg-[#E1306C]/10 transition-colors text-[13px] tracking-wide">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
