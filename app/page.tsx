@@ -303,7 +303,7 @@ function Countdown() {
 
   useEffect(() => {
     setIsClient(true);
-    const targetDate = new Date("2026-10-17T08:00:00").getTime();
+    const targetDate = new Date("2026-10-15T08:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -372,7 +372,7 @@ function Hero() {
         <div className="mt-8 border-t border-gold/30 pt-8 max-w-lg mx-auto">
           <p className="tracking-[0.3em] uppercase text-sm text-gold mb-2">Save The Date</p>
           <p className="tracking-widest text-xl sm:text-2xl text-stone-300 font-serif italic mb-6">
-            17 Oktober 2026
+            15 Oktober 2026
           </p>
           <Countdown />
         </div>
@@ -525,13 +525,13 @@ function EventDetails() {
             transition={{ duration: 0.8 }}
             className="w-full max-w-md bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] p-8 flex flex-col items-center text-center hover:scale-[1.02] hover:border-gold/50 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-500 cursor-default"
           >
-            <h3 className="font-serif text-3xl mb-2 text-white">Resepsi Pernikahan</h3>
+            <h3 className="font-serif text-3xl mb-2 text-white">Akad & Resepsi Pernikahan</h3>
             <div className="w-12 h-[1px] bg-gold mb-6"></div>
 
             <div className="space-y-4 mb-8">
               <div className="flex flex-col items-center">
                 <CalendarDays className="text-gold mb-2" size={24} />
-                <p className="font-semibold text-lg text-stone-200">Sabtu, 17 Oktober 2026</p>
+                <p className="font-semibold text-lg text-stone-200">Kamis, 15 Oktober 2026</p>
                 <p className="text-stone-400">08.00 WIB - Selesai</p>
               </div>
 
@@ -552,9 +552,14 @@ function EventDetails() {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 mt-12 w-full max-w-md"
         >
-          <button className="flex-1 bg-gold text-[#2C1E16] font-semibold py-3 px-6 rounded-full hover:bg-gold-hover transition-colors flex items-center justify-center gap-2">
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+%26+Resepsi+Pernikahan+Rudi+%26+Cella&dates=20261015T010000Z/20261015T090000Z&details=Akad+%26+Resepsi+Pernikahan+Rudi+%26+Cella&location=USTP+PT+GRAHA+CAKRA+MULIA+(PT+GCM),+Jalan+Kantor+Besar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 bg-gold text-[#2C1E16] font-semibold py-3 px-6 rounded-full hover:bg-gold-hover transition-colors flex items-center justify-center gap-2"
+          >
             <CalendarDays size={18} /> Add to Calendar
-          </button>
+          </a>
           <a href="https://maps.app.goo.gl/snAktsCEBNC7shbx7?g_st=ac" target="_blank" rel="noopener noreferrer" className="flex-1 bg-transparent border border-gold text-gold font-semibold py-3 px-6 rounded-full hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
             <MapPin size={18} /> View Maps
           </a>
